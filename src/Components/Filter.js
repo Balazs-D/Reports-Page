@@ -7,9 +7,9 @@ import Checkbox from "./Checkbox";
 const FilterMods = [
   "Published",
   "Not Published",
-  "Extended",
-  "Primary",
-  "Intermediate",
+  "extended",
+  "primary",
+  "intermediate",
 ];
 
 const Filter = (props) => {
@@ -26,20 +26,11 @@ const Filter = (props) => {
     console.log(e.target.name);
     console.log(context.data);
 
-    // get currentArray
-    // check if filter arraz item is equals
+    const currentArr = context.data.filter((f) =>
+      context.currentFilterSelection.includes(f.body.type.toString())
+    );
 
-    const test = context.data.filter((f) => f.body.type === "extended");
-
-    console.log(test);
-
-    // const currentArr = context.data.filter(
-    //   (item) =>
-
-    //   // item.body.type.includes |
-    //   // item.body.bankBIC[0].includes(currentKeyword)
-    // );
-    // context.setCurrentData(currentArr);
+    context.setCurrentData(currentArr);
   };
 
   return (
