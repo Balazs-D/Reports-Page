@@ -18,27 +18,29 @@ const Table = () => {
   return (
     <Styles>
       <table>
-        <tr className="titleRow">
-          <th>Bank Name</th>
-          <th>Bank BIC</th>
-          <th>Score</th>
-          <th>Type</th>
-          <th>Created at</th>
-          <th>Published at</th>
-        </tr>
-        {context.currentData &&
-          context.currentData.map((item, i) => {
-            return (
-              <tr>
-                <th>{item.body.bankName}</th>
-                <th>{item.body.bankBIC}</th>
-                <th>{item.body.reportScore}</th>
-                <th>{item.body.type}</th>
-                <th>{item.createdAt}</th>
-                <th>{item.publishedAt}</th>
-              </tr>
-            );
-          })}
+        <tbody>
+          <tr className="titleRow">
+            <th>Bank Name</th>
+            <th>Bank BIC</th>
+            <th>Score</th>
+            <th>Type</th>
+            <th>Created at</th>
+            <th>Published at</th>
+          </tr>
+          {context.currentData &&
+            context.currentData.map((item, i) => {
+              return (
+                <tr key={i}>
+                  <th>{item.body.bankName}</th>
+                  <th>{item.body.bankBIC}</th>
+                  <th>{item.body.reportScore}</th>
+                  <th>{item.body.type}</th>
+                  <th>{item.createdAt}</th>
+                  <th>{item.publishedAt}</th>
+                </tr>
+              );
+            })}
+        </tbody>
       </table>
     </Styles>
   );
