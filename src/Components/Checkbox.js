@@ -4,7 +4,12 @@ import styled from "styled-components";
 const Checkbox = (props) => {
   return (
     <Cont>
-      <input type="checkbox" id={props.name} name={props.name}></input>
+      <input
+        type="checkbox"
+        id={props.name}
+        name={props.name}
+        onChange={props.onChange}
+      ></input>
       <label for={props.name}>{props.name}</label>
     </Cont>
   );

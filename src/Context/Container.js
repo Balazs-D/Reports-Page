@@ -4,6 +4,7 @@ import { Context } from "./Context";
 const Container = (props) => {
   const [data, setData] = useState([]);
   const [currentData, setCurrentData] = useState([]);
+  const [currentFilterSelection, setCurrentFilterSelection] = useState([]);
 
   return (
     <Context.Provider
@@ -12,6 +13,8 @@ const Container = (props) => {
         setCurrentData,
         data,
         setData,
+        currentFilterSelection,
+        setCurrentFilterSelection,
       }}
     >
       <Fragment>{props.children}</Fragment>
