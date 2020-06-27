@@ -15,12 +15,26 @@ const Table = () => {
     fetchFile();
   }, []);
 
+  const sortName = () => {
+    context.setUpwards(!context.upwards);
+  };
+
   return (
     <Styles>
       <table>
         <tbody>
           <tr className="titleRow">
-            <th>Bank Name</th>
+            <th>
+              Bank Name{" "}
+              <button onClick={sortName}>
+                {context.upwards ? (
+                  <i class="fas fa-arrow-circle-up"></i>
+                ) : (
+                  <i class="fas fa-arrow-circle-down"></i>
+                )}
+              </button>
+            </th>
+
             <th>Bank BIC</th>
             <th>Score</th>
             <th>Type</th>
@@ -28,20 +42,26 @@ const Table = () => {
             <th>Published at</th>
           </tr>
           {context.currentData &&
-            context.currentData.map((item, i) => {
-              if (i > context.pagValue - 10 && i < context.pagValue) {
-                return (
-                  <tr key={i}>
-                    <th>{item.body.bankName}</th>
-                    <th>{item.body.bankBIC}</th>
-                    <th>{item.body.reportScore}</th>
-                    <th>{item.body.type}</th>
-                    <th>{item.createdAt}</th>
-                    <th>{item.publishedAt}</th>
-                  </tr>
-                );
-              }
-            })}
+            context.currentData
+              .sort((a, b) =>
+                context.upwards
+                  ? a.body.bankName.localeCompare(b.body.bankName)
+                  : b.body.bankName.localeCompare(a.body.bankName)
+              )
+              .map((item, i) => {
+                if (i > context.pagValue - 10 && i < context.pagValue) {
+                  return (
+                    <tr key={i}>
+                      <th>{item.body.bankName}</th>
+                      <th>{item.body.bankBIC}</th>
+                      <th>{item.body.reportScore}</th>
+                      <th>{item.body.type}</th>
+                      <th>{item.createdAt}</th>
+                      <th>{item.publishedAt}</th>
+                    </tr>
+                  );
+                }
+              })}
         </tbody>
       </table>
     </Styles>
@@ -55,6 +75,15 @@ const Styles = styled.div`
     font-size: 3vw;
     width: 100vw;
     overflow: scroll;
+    .sortButton {
+      margin: 0 1vw;
+      position: absolute;
+    }
+    button {
+      background: transparent;
+      border: none;
+      outline: none;
+    }
 
     table {
       border-spacing: 0;
