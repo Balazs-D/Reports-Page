@@ -29,16 +29,18 @@ const Table = () => {
           </tr>
           {context.currentData &&
             context.currentData.map((item, i) => {
-              return (
-                <tr key={i}>
-                  <th>{item.body.bankName}</th>
-                  <th>{item.body.bankBIC}</th>
-                  <th>{item.body.reportScore}</th>
-                  <th>{item.body.type}</th>
-                  <th>{item.createdAt}</th>
-                  <th>{item.publishedAt}</th>
-                </tr>
-              );
+              if (i > context.pagValue - 10 && i < context.pagValue) {
+                return (
+                  <tr key={i}>
+                    <th>{item.body.bankName}</th>
+                    <th>{item.body.bankBIC}</th>
+                    <th>{item.body.reportScore}</th>
+                    <th>{item.body.type}</th>
+                    <th>{item.createdAt}</th>
+                    <th>{item.publishedAt}</th>
+                  </tr>
+                );
+              }
             })}
         </tbody>
       </table>
@@ -48,13 +50,14 @@ const Table = () => {
 
 const Styles = styled.div`
   @media (min-width: 0px) {
-    padding: 1rem;
+    padding: 0rem;
     font-size: 2vw;
+
     table {
       border-spacing: 0;
-      border: 1px solid black;
+      /* border: 1px solid black; */
       color: black;
-      width: 80vw;
+      width: 100%;
       .titleRow {
         background: orange;
       }
@@ -70,8 +73,8 @@ const Styles = styled.div`
       td {
         margin: 0;
         padding: 0.5rem;
-        border-bottom: 1px solid black;
-        border-right: 1px solid black;
+        border-bottom: 1px dashed grey;
+        border-right: 1px dashed grey;
 
         :last-child {
           border-right: 0;

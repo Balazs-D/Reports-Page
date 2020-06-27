@@ -6,6 +6,7 @@ const Container = (props) => {
   const [currentData, setCurrentData] = useState([]);
   const [currentFilterSelection, setCurrentFilterSelection] = useState([]);
   const [currentPublishArray, setCurrentPublishArray] = useState([""]);
+  const [pagValue, setPagValue] = useState(10);
   return (
     <Context.Provider
       value={{
@@ -17,6 +18,8 @@ const Container = (props) => {
         setCurrentFilterSelection,
         currentPublishArray,
         setCurrentPublishArray,
+        pagValue,
+        setPagValue,
       }}
     >
       <Fragment>{props.children}</Fragment>

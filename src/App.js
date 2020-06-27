@@ -22,10 +22,12 @@ const App = () => {
   return (
     <MainCont>
       <Container>
-        <Control />
-        <Cont>
-          <Table />
-        </Cont>
+        <CenterCont>
+          <Control />
+          <Cont>
+            <Table />
+          </Cont>
+        </CenterCont>
       </Container>
     </MainCont>
   );
@@ -33,20 +35,26 @@ const App = () => {
 
 const MainCont = styled.div`
   width: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   background: lightgreen;
+  overflow: scroll;
 `;
 
 const Cont = styled.div`
   width: 100%;
-  height: 100vh;
   /* background: lightgreen; */
   display: flex;
   justify-content: center;
-  overflow: scroll;
+`;
+
+const CenterCont = styled.div`
+  width: 80vw;
+  border-left: 1px solid red;
+  border-right: 1px solid red;
 `;
 
 export default App;

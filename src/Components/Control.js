@@ -1,21 +1,21 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
-import axios from "axios";
-import { Context } from "../Context/Context";
 
 // Components
 import InputText from "./Input";
 import Filter from "./Filter";
 import ScoreRange from "./ScoreRange";
+import Pagination from "./Pagination";
 
 const Control = () => {
-  const context = useContext(Context);
-
   return (
     <ControlCont>
-      <InputText />
-      <Filter />
-      <ScoreRange />
+      <span>
+        <InputText />
+        <Filter />
+        <ScoreRange />
+      </span>
+      <Pagination />
     </ControlCont>
   );
 };
@@ -24,8 +24,16 @@ const ControlCont = styled.div`
   width: 80vw;
   height: 10vh;
   display: flex;
+  flex-direction: column;
   padding: 2vh 0;
   justify-content: space-between;
+  align-items: center;
+
+  span {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+  }
 `;
 
 export default Control;
