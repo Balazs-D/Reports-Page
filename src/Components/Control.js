@@ -6,6 +6,7 @@ import { Context } from "../Context/Context";
 // Components
 import InputText from "./Input";
 import Filter from "./Filter";
+import ScoreRange from "./ScoreRange";
 
 const Control = () => {
   const context = useContext(Context);
@@ -14,6 +15,7 @@ const Control = () => {
     <ControlCont>
       <InputText />
       <Filter />
+      <ScoreRange />
     </ControlCont>
   );
 };

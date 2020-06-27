@@ -27,6 +27,7 @@ const InputText = () => {
       <input
         className="inputText"
         type="text"
+        value={currentKeyword}
         placeholder="Bank Name, Bank BIC search.."
         onChange={(e) => handleChange(e)}
       ></input>
