@@ -12,6 +12,7 @@ const FilterMods = [
   "intermediate",
 ];
 
+// Function filter type
 const Filter = (props) => {
   const context = useContext(Context);
 
@@ -38,7 +39,9 @@ const Filter = (props) => {
     }
   };
 
+  // Function Published / Not Published
   const handlePublishCheck = (e) => {
+    const todayDate = new Date();
     let today = new Date();
     const dd = String(today.getDate()).padStart(2, "0");
     const mm = String(today.getMonth() + 1).padStart(2, "0");
@@ -51,11 +54,35 @@ const Filter = (props) => {
     } else {
       context.currentPublishArray.push(e.target.name);
     }
-    const currentArr = context.data.filter((f) => today < f.body.createdAt);
 
-    console.log(context.data.filter((f) => f.createdAt.substring(0, 10)));
+    // var currentArr = context.data.filter(function (item) {
+    //   var date = new Date(item.createdAt);
+    //   return date >= todayDate;
+    // });
 
+    var currentArr = context.data.filter(function (f) {
+      let curr = f.createdAt;
+      // extract all date strings
+      curr = Object.keys(curr);
+      // convert strings to date object
+      curr = curr.map(function (date) {
+        return new Date(date);
+      });
+      // filter dates by actual date
+      var datesMatch = curr.filter(function (date) {
+        return date <= todayDate;
+      });
+
+      console.log(curr);
+      console.log(todayDate);
+      // if there is more than 0 results keep it. if 0 then filter it away
+      return datesMatch.length > 0;
+    });
     context.setCurrentData(currentArr);
+
+    console.log(currentArr);
+
+    // context.setCurrentData(currentArr);
   };
 
   useEffect(() => {

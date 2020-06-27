@@ -52,6 +52,7 @@ const Styles = styled.div`
   @media (min-width: 0px) {
     padding: 0rem;
     font-size: 2vw;
+    width: 100%;
 
     table {
       border-spacing: 0;
@@ -62,6 +63,7 @@ const Styles = styled.div`
         background: orange;
       }
       tr {
+        height: 4vw;
         :last-child {
           td {
             border-bottom: 0;

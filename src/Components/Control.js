@@ -22,7 +22,6 @@ const Control = () => {
 
 const ControlCont = styled.div`
   width: 80vw;
-  height: 10vh;
   display: flex;
   flex-direction: column;
   padding: 2vh 0;
