@@ -53,7 +53,7 @@ const Filter = (props) => {
     }
     const currentArr = context.data.filter((f) => today < f.body.createdAt);
 
-    console.log(context.data.filter((f) => today < f.createdAt));
+    console.log(context.data.filter((f) => f.createdAt));
 
     context.setCurrentData(currentArr);
   };
