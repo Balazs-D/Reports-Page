@@ -37,24 +37,38 @@ const Control = () => {
 };
 
 const Span = styled.span`
-  display: ${(props) => (props.hidden ? "none" : "flex")};
-  width: 100%;
-  flex-direction: row;
-  justify-content: space-between;
+  @media (min-width: 0px) {
+    display: ${(props) => (props.hidden ? "none" : "flex")};
+    width: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  @media (min-width: 800px) {
+    flex-direction: row;
+  }
 `;
 
 const ControlCont = styled.div`
-  width: 80vw;
-  display: flex;
-  flex-direction: column;
-  padding: 2vh 0;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  margin: 2vw 0 0vw 0;
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+    padding: 2vh 0;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 2vw 0 0vw 0;
 
-  .side {
-    margin: 0.5vw;
+    .side {
+      margin: 0.5vw;
+    }
+
+    /* .filterSpan {
+      display: flex;
+      flex-direction: column;
+    } */
+  
+  
+    
   }
 `;
 

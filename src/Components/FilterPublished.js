@@ -90,7 +90,7 @@ const FilterCont = styled.div`
   padding: 0.5vw;
   border: 1px solid black;
   border-radius: 8px;
-  margin: 0 0.5vw;
+  margin: 0.5vw;
 
   .section {
     display: flex;

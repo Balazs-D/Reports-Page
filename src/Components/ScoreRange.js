@@ -40,8 +40,7 @@ const ScoreRange = () => {
             value={minVal}
             onChange={(e) => handleMin(e)}
           ></input>
-        </span>
-        <span className="spanCol">
+
           <input
             placeholder="Maximum"
             type="text"
@@ -63,42 +62,67 @@ const ScoreRange = () => {
 };
 
 const SearchCont = styled.div`
-  display: flex;
-  justify-content: flex-start;
-  flex-direction: column;
-  flex: 1;
-  padding: 0.5vw;
-  border: 1px solid black;
-  border-radius: 4px;
-  margin: 0 0.5vw;
-
-  input {
-    padding: 10px;
-    outline: none;
-    width: 80px;
+  @media (min-width: 0px) {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    flex: 1;
+    padding: 0.5vw;
     border: 1px solid black;
     border-radius: 4px;
-    justify-content: flex-start;
-    align-items: flex-start;
-    margin-right: 10px;
-  }
+    margin: 0.5vw;
+    p {
+      margin: 2vw 0 2vw 0;
+    }
 
-  .spanRow {
-    display: flex;
-    flex-direction: row;
-  }
+    input {
+      padding: 10px;
 
-  .spanCol {
-    display: flex;
-    flex-direction: column;
-  }
+      outline: none;
+      border: 1px solid black;
+      border-radius: 4px;
+      justify-content: flex-start;
+      align-items: flex-start;
+      margin-right: 4px;
+    }
 
-  .searchButton {
-    width: 75px;
-    margin: 0 1vw;
-    background: white;
-    color: black;
-    font-weight: bold;
+    .spanRow {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .spanCol {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .searchButton {
+      width: 75px;
+      margin: 0vw;
+      background: white;
+      color: black;
+      font-weight: bold;
+    }
+  }
+  @media (min-width: 800px) {
+    input {
+      width: 80px;
+      margin-right: 10px;
+    }
+    p {
+      margin: 0 0 0.5vw 0;
+    }
+    .spanRow {
+      display: flex;
+      flex-direction: row;
+    }
+    .spanCol {
+      display: flex;
+      flex-direction: row;
+    }
+    .searchButton {
+      margin: 0 1vw;
+    }
   }
 `;
 

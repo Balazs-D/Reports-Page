@@ -52,16 +52,18 @@ const FilterType = (props) => {
     <FilterCont>
       <p>Type</p>
       <span>
-        {FilterMods.map((item, i) => {
-          if (i > 1)
-            return (
-              <Checkbox
-                key={i}
-                name={item}
-                onChange={(e) => handleChecked(e)}
-              />
-            );
-        })}
+        <span id="checkBoxKeeper">
+          {FilterMods.map((item, i) => {
+            if (i > 1)
+              return (
+                <Checkbox
+                  key={i}
+                  name={item}
+                  onChange={(e) => handleChecked(e)}
+                />
+              );
+          })}
+        </span>
         <input
           className="searchButton"
           type="button"
@@ -74,30 +76,46 @@ const FilterType = (props) => {
 };
 
 const FilterCont = styled.div`
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  padding: 0.5vw;
-  border: 1px solid black;
-  border-radius: 4px;
-  margin: 0 0.5vw;
-
-  span {
+  @media (min-width: 0px) {
     display: flex;
-    flex-direction: row;
-    flex: 3;
-  }
-  p {
-    padding: 0 0.5vw;
-  }
-  .searchButton {
-    width: 75px;
-    margin: 0 1vw;
-    background: white;
-    color: black;
-    font-weight: bold;
+    flex: 1;
+    flex-direction: column;
+    padding: 0.5vw;
     border: 1px solid black;
     border-radius: 4px;
+    margin: 0.5vw;
+    p {
+      margin: 2vw 0 2vw 0;
+    }
+    #checkBoxKeeper {
+      flex-direction: column;
+    }
+
+    span {
+      display: flex;
+      flex-direction: row;
+      flex: 3;
+    }
+    p {
+      padding: 0 0.5vw;
+    }
+    .searchButton {
+      width: 75px;
+      margin: 0 1vw;
+      background: white;
+      color: black;
+      font-weight: bold;
+      border: 1px solid black;
+      border-radius: 4px;
+    }
+  }
+  @media (min-width: 800px) {
+    p {
+      margin: 0 0 0.5vw 0;
+    }
+    #checkBoxKeeper {
+      flex-direction: row;
+    }
   }
 `;
 

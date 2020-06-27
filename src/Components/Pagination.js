@@ -30,32 +30,40 @@ const Pagination = (props) => {
 };
 
 const PagCont = styled.div`
-  display: flex;
-  align-items: center;
-  text-align: center;
-  justify-content: space-between;
-  height: 100%;
-  width: 30%;
-  border: 2px solid black;
-  border-radius: 8px;
-  margin: 1vw 0 0 0;
-  p {
-    width: 8vw;
-    padding: 0 1.2vw;
-    border-radius: 8px;
-    margin: 0;
+  @media (min-width: 0px) {
     display: flex;
     align-items: center;
     text-align: center;
-    justify-content: center;
-  }
-
-  input {
-    width: 6vw;
-    border: none;
-    background: white;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+    border: 2px solid black;
     border-radius: 8px;
-    outline: none;
+    margin: 1vw 0 0 0;
+    p {
+      width: 8vw;
+      padding: 0 1.2vw;
+      border-radius: 8px;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      justify-content: center;
+    }
+
+    input {
+      width: 18vw;
+      border: none;
+      background: white;
+      border-radius: 8px;
+      outline: none;
+    }
+  }
+  @media (min-width: 800px) {
+    width: 30%;
+    input {
+      width: 6vw;
+    }
   }
 `;
 
