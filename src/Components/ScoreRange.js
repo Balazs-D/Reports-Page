@@ -75,11 +75,12 @@ const SearchCont = styled.div`
   input {
     padding: 10px;
     outline: none;
-    width: 35px;
+    width: 80px;
     border: 1px solid black;
     border-radius: 4px;
     justify-content: flex-start;
     align-items: flex-start;
+    margin-right: 10px;
   }
 
   .spanRow {
@@ -93,12 +94,11 @@ const SearchCont = styled.div`
   }
 
   .searchButton {
+    width: 75px;
     margin: 0 1vw;
     background: white;
     color: black;
     font-weight: bold;
-    border: 2px solid blue;
-    width: 75px;
   }
 `;
 

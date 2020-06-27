@@ -51,8 +51,7 @@ const FilterType = (props) => {
   return (
     <FilterCont>
       <p>Type</p>
-
-      <div className="section two">
+      <span>
         {FilterMods.map((item, i) => {
           if (i > 1)
             return (
@@ -63,13 +62,13 @@ const FilterType = (props) => {
               />
             );
         })}
-      </div>
-      <input
-        className="searchButton"
-        type="button"
-        value="Search"
-        onClick={handleClick}
-      ></input>
+        <input
+          className="searchButton"
+          type="button"
+          value="Search"
+          onClick={handleClick}
+        ></input>
+      </span>
     </FilterCont>
   );
 };
@@ -78,23 +77,27 @@ const FilterCont = styled.div`
   display: flex;
   flex: 1;
   flex-direction: column;
-  display: flex;
   padding: 0.5vw;
   border: 1px solid black;
   border-radius: 4px;
   margin: 0 0.5vw;
-  .section {
+
+  span {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    margin-bottom: 1vw;
-    border: 1px solid black;
-    border-radius: 4px;
+    flex: 3;
   }
-
   p {
     padding: 0 0.5vw;
+  }
+  .searchButton {
+    width: 75px;
+    margin: 0 1vw;
+    background: white;
+    color: black;
+    font-weight: bold;
+    border: 1px solid black;
+    border-radius: 4px;
   }
 `;
 

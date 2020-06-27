@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext, Fragment } from "react";
 import styled from "styled-components";
 import { Context } from "../Context/Context";
 
-const Pagination = () => {
+const Pagination = (props) => {
   const context = useContext(Context);
 
   const Next = () => {
@@ -18,7 +18,7 @@ const Pagination = () => {
 
   return (
     <Fragment>
-      <PagCont>
+      <PagCont className={props.className}>
         <input type="button" value="Previous" onClick={Prev}></input>
         <p>
           {context.pagValue / 10} / {Math.ceil(context.currentData.length / 10)}

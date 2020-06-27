@@ -51,6 +51,7 @@ const Table = () => {
 const Styles = styled.div`
   @media (min-width: 0px) {
     padding: 0rem;
+    margin: 1vw 0;
     font-size: 2vw;
     width: 100%;
 

@@ -8,14 +8,14 @@ const InputText = () => {
 
   const handleChange = (e) => {
     e.preventDefault();
-    setCurrentKeyword(e.target.value);
+    setCurrentKeyword(e.target.value.toLowerCase());
     console.log(e.target.value);
   };
 
   const handleSearch = () => {
     const currentArr = context.data.filter(
       (item) =>
-        item.body.bankName.includes(currentKeyword) ||
+        item.body.bankName.toLowerCase().includes(currentKeyword) ||
         item.body.bankBIC[0].includes(currentKeyword)
     );
 
@@ -26,7 +26,7 @@ const InputText = () => {
 
   return (
     <SearchCont>
-      <p>Keyword Search (only name & BIC)</p>
+      <p>Keyword Search (only name & bic)</p>
       <span>
         <input
           className="inputText"
@@ -70,7 +70,6 @@ const SearchCont = styled.div`
     background: white;
     color: black;
     font-weight: bold;
-    border: 2px solid blue;
   }
   span {
     display: flex;
