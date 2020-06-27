@@ -26,7 +26,9 @@ const FilterType = (props) => {
     console.log(context.currentFilterSelection);
     console.log(e.target.name);
     console.log(context.data);
+  };
 
+  const handleClick = () => {
     if (context.currentFilterSelection.length !== 0) {
       const currentArr = context.data.filter((f) =>
         context.currentFilterSelection.includes(f.body.type.toString())
@@ -62,6 +64,12 @@ const FilterType = (props) => {
             );
         })}
       </div>
+      <input
+        className="searchButton"
+        type="button"
+        value="Search"
+        onClick={handleClick}
+      ></input>
     </FilterCont>
   );
 };
@@ -74,6 +82,7 @@ const FilterCont = styled.div`
   padding: 0.5vw;
   border: 1px solid black;
   border-radius: 4px;
+  margin: 0 0.5vw;
   .section {
     display: flex;
     flex-direction: row;

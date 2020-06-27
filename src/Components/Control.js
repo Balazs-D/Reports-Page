@@ -15,7 +15,7 @@ const Control = () => {
         <InputText />
         <ScoreRange />
         <FilterType />
-        <FilterPublished />
+        {/* <FilterPublished /> */}
       </span>
       <Pagination />
     </ControlCont>

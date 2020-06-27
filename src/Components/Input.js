@@ -48,10 +48,12 @@ const InputText = () => {
 
 const SearchCont = styled.div`
   display: flex;
+  flex: 1;
   flex-direction: column;
   padding: 0.5vw;
   border: 1px solid black;
   border-radius: 4px;
+  margin: 0 0.5vw;
 
   input {
     padding: 10px;

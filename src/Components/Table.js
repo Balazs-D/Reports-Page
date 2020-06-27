@@ -53,7 +53,6 @@ const Styles = styled.div`
     padding: 0rem;
     font-size: 2vw;
     width: 100%;
-    margin: 0;
 
     table {
       border-spacing: 0;

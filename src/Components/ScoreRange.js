@@ -70,6 +70,8 @@ const SearchCont = styled.div`
   padding: 0.5vw;
   border: 1px solid black;
   border-radius: 4px;
+  margin: 0 0.5vw;
+
   input {
     padding: 10px;
     outline: none;
