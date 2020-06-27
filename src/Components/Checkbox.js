@@ -18,6 +18,10 @@ const Checkbox = (props) => {
 const Cont = styled.div`
   display: flex;
   margin-right: 1vw;
+
+  label {
+    font-size: 0.7rem;
+  }
 `;
 
 export default Checkbox;

@@ -13,31 +13,8 @@ const FilterMods = [
 ];
 
 // Function filter type
-const Filter = (props) => {
+const FilterPublished = (props) => {
   const context = useContext(Context);
-
-  const handleChecked = (e) => {
-    if (context.currentFilterSelection.includes(e.target.name)) {
-      let Ind = context.currentFilterSelection.indexOf(e.target.name);
-      context.currentFilterSelection.splice(Ind, 1);
-    } else {
-      context.currentFilterSelection.push(e.target.name);
-    }
-    console.log(context.currentFilterSelection);
-    console.log(e.target.name);
-    console.log(context.data);
-
-    if (context.currentFilterSelection.length !== 0) {
-      const currentArr = context.data.filter((f) =>
-        context.currentFilterSelection.includes(f.body.type.toString())
-      );
-      context.setCurrentData(currentArr);
-      console.log(currentArr);
-    }
-    if (context.currentFilterSelection.length === 0) {
-      context.setCurrentData(context.data);
-    }
-  };
 
   // Function Published / Not Published
   const handlePublishCheck = (e) => {
@@ -85,15 +62,10 @@ const Filter = (props) => {
     // context.setCurrentData(currentArr);
   };
 
-  useEffect(() => {
-    if (context.currentFilterSelection.length === 0) {
-      context.setCurrentData(context.data);
-    }
-    //eslint-disable-next-line
-  }, [context.currentFilterSelection]);
-
   return (
     <FilterCont>
+      <p>Published</p>
+
       <div className="section one">
         {FilterMods.map((item, i) => {
           if (i < 2)
@@ -106,38 +78,29 @@ const Filter = (props) => {
             );
         })}
       </div>
-      <div className="section two">
-        {FilterMods.map((item, i) => {
-          if (i > 1)
-            return (
-              <Checkbox
-                key={i}
-                name={item}
-                onChange={(e) => handleChecked(e)}
-              />
-            );
-        })}
-      </div>
     </FilterCont>
   );
 };
 
 const FilterCont = styled.div`
-  width: 30vw;
   display: flex;
+  flex: 1;
   flex-direction: column;
   display: flex;
-
+  padding: 0.5vw;
+  border: 1px solid black;
+  border-radius: 8px;
   .section {
-    border: 1px solid black;
     display: flex;
-    flex-direction: row;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
     margin-bottom: 1vw;
-    /* padding: 0.5vw; */
-    border-radius: 8px;
-    background: lightgrey;
+    border: 1px solid black;
+    border-radius: 4px;
+  }
+  p {
+    padding: 0 0.5vw;
   }
 `;
 
-export default Filter;
+export default FilterPublished;

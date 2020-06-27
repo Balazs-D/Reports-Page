@@ -21,32 +21,43 @@ const ScoreRange = () => {
       (item) =>
         minVal <= item.body.reportScore && maxVal >= item.body.reportScore
     );
+    setMaxVal("");
+    setMinVal("");
+
     context.setCurrentData(currentArr);
   };
 
   return (
     <SearchCont>
-      <label htmlFor="min">Min.</label>
-      <input
-        type="text"
-        id="min"
-        name="min"
-        value={minVal}
-        onChange={(e) => handleMin(e)}
-      ></input>
-      <label htmlFor="max">Max.</label>
-      <input
-        type="text"
-        id="max"
-        name="max"
-        onChange={(e) => handleMax(e)}
-      ></input>
-      <input
-        className="searchButton"
-        type="button"
-        value="Set Range-Filter"
-        onClick={handleFilterRange}
-      ></input>
+      <p>Score Range</p>
+      <span className="spanRow">
+        <span className="spanCol">
+          <input
+            type="text"
+            placeholder="Minimum"
+            id="min"
+            name="min"
+            value={minVal}
+            onChange={(e) => handleMin(e)}
+          ></input>
+        </span>
+        <span className="spanCol">
+          <input
+            placeholder="Maximum"
+            type="text"
+            id="max"
+            name="max"
+            value={maxVal}
+            onChange={(e) => handleMax(e)}
+          ></input>
+        </span>
+        <input
+          className="searchButton"
+          type="button"
+          value="Set Filter"
+          onClick={handleFilterRange}
+        ></input>
+      </span>
     </SearchCont>
   );
 };
@@ -54,10 +65,39 @@ const ScoreRange = () => {
 const SearchCont = styled.div`
   display: flex;
   justify-content: flex-start;
-  align-items: center;
-  text-align: center;
-  justify-content: center;
-  height: 35%;
+  flex-direction: column;
+  flex: 1;
+  padding: 0.5vw;
+  border: 1px solid black;
+  border-radius: 4px;
+  input {
+    padding: 10px;
+    outline: none;
+    width: 35px;
+    border: 1px solid black;
+    border-radius: 4px;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  .spanRow {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .spanCol {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .searchButton {
+    margin: 0 1vw;
+    background: white;
+    color: black;
+    font-weight: bold;
+    border: 2px solid blue;
+    width: 75px;
+  }
 `;
 
 export default ScoreRange;

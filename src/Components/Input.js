@@ -18,51 +18,61 @@ const InputText = () => {
         item.body.bankName.includes(currentKeyword) ||
         item.body.bankBIC[0].includes(currentKeyword)
     );
+
     context.setCurrentData(currentArr);
+    setCurrentKeyword("");
     console.log(context.currentData);
   };
 
   return (
     <SearchCont>
-      <input
-        className="inputText"
-        type="text"
-        value={currentKeyword}
-        placeholder="Bank Name, Bank BIC search.."
-        onChange={(e) => handleChange(e)}
-      ></input>
-      <input
-        className="searchButton"
-        type="button"
-        value="Search"
-        onClick={handleSearch}
-      ></input>
+      <p>Keyword Search (only name & BIC)</p>
+      <span>
+        <input
+          className="inputText"
+          type="text"
+          value={currentKeyword}
+          placeholder="Bank Name, Bank BIC search.."
+          onChange={(e) => handleChange(e)}
+        ></input>
+        <input
+          className="searchButton"
+          type="button"
+          value="Search"
+          onClick={handleSearch}
+        ></input>
+      </span>
     </SearchCont>
   );
 };
 
 const SearchCont = styled.div`
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  text-align: center;
-  justify-content: center;
-  height: 35%;
+  flex-direction: column;
+  padding: 0.5vw;
+  border: 1px solid black;
+  border-radius: 4px;
 
   input {
     padding: 10px;
     outline: none;
-    width: 15vw;
+    width: auto;
     border: 1px solid black;
     border-radius: 4px;
     justify-content: flex-start;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
+    align-items: flex-start;
   }
   .searchButton {
-    width: 5vw;
+    width: 75px;
     margin: 0 1vw;
+    background: white;
+    color: black;
+    font-weight: bold;
+    border: 2px solid blue;
+  }
+  span {
+    display: flex;
+    flex-direction: row;
   }
 `;
 

@@ -40,7 +40,6 @@ const MainCont = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  background: lightgreen;
   overflow: scroll;
 `;
 
@@ -53,8 +52,6 @@ const Cont = styled.div`
 
 const CenterCont = styled.div`
   width: 80vw;
-  border-left: 1px solid red;
-  border-right: 1px solid red;
 `;
 
 export default App;
