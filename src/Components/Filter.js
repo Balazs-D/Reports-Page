@@ -26,12 +26,44 @@ const Filter = (props) => {
     console.log(e.target.name);
     console.log(context.data);
 
-    const currentArr = context.data.filter((f) =>
-      context.currentFilterSelection.includes(f.body.type.toString())
-    );
+    if (context.currentFilterSelection.length !== 0) {
+      const currentArr = context.data.filter((f) =>
+        context.currentFilterSelection.includes(f.body.type.toString())
+      );
+      context.setCurrentData(currentArr);
+      console.log(currentArr);
+    }
+    if (context.currentFilterSelection.length === 0) {
+      context.setCurrentData(context.data);
+    }
+  };
+
+  const handlePublishCheck = (e) => {
+    let today = new Date();
+    const dd = String(today.getDate()).padStart(2, "0");
+    const mm = String(today.getMonth() + 1).padStart(2, "0");
+    const yyyy = today.getFullYear();
+    today = yyyy + "-" + mm + "-" + dd;
+    console.log(today);
+    if (context.currentPublishArray.includes(e.target.name)) {
+      let Ind = context.currentPublishArray.indexOf(e.target.name);
+      context.currentPublishArray.splice(Ind, 1);
+    } else {
+      context.currentPublishArray.push(e.target.name);
+    }
+    const currentArr = context.data.filter((f) => today < f.body.createdAt);
+
+    console.log(context.data.filter((f) => today < f.createdAt));
 
     context.setCurrentData(currentArr);
   };
+
+  useEffect(() => {
+    if (context.currentFilterSelection.length === 0) {
+      context.setCurrentData(context.data);
+    }
+    //eslint-disable-next-line
+  }, [context.currentFilterSelection]);
 
   return (
     <FilterCont>
@@ -42,7 +74,7 @@ const Filter = (props) => {
               <Checkbox
                 key={i}
                 name={item}
-                onChange={(e) => handleChecked(e)}
+                onChange={(e) => handlePublishCheck(e)}
               />
             );
         })}
