@@ -52,8 +52,9 @@ const Styles = styled.div`
   @media (min-width: 0px) {
     padding: 0rem;
     margin: 1vw 0;
-    font-size: 2vw;
-    width: 100%;
+    font-size: 3vw;
+    width: 100vw;
+    overflow: scroll;
 
     table {
       border-spacing: 0;
@@ -87,6 +88,8 @@ const Styles = styled.div`
   }
   @media (min-width: 800px) {
     font-size: 1vw;
+    width: 100%;
+    overflow: visible;
   }
 `;
 

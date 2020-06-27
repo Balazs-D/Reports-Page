@@ -62,11 +62,7 @@ const ControlCont = styled.div`
       margin: 0.5vw;
     }
 
-    /* .filterSpan {
-      display: flex;
-      flex-direction: column;
-    } */
-  
+   
   
     
   }

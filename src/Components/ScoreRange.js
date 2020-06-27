@@ -67,28 +67,32 @@ const SearchCont = styled.div`
     justify-content: flex-start;
     flex-direction: column;
     flex: 1;
-    padding: 0.5vw;
+    padding: 2vw;
     border: 1px solid black;
     border-radius: 4px;
-    margin: 0.5vw;
+    margin: 0 0 1vw 0;
     p {
-      margin: 2vw 0 2vw 0;
+      margin: 0 0 2vw 0;
+    }
+    #min {
+      margin-bottom: 5px;
     }
 
     input {
       padding: 10px;
-
       outline: none;
       border: 1px solid black;
       border-radius: 4px;
       justify-content: flex-start;
       align-items: flex-start;
       margin-right: 4px;
+      width: 50%;
     }
 
     .spanRow {
       display: flex;
       flex-direction: row;
+      justify-content: space-between;
     }
 
     .spanCol {
@@ -105,13 +109,13 @@ const SearchCont = styled.div`
     }
   }
   @media (min-width: 800px) {
+    margin: 0.5vw;
+
     input {
       width: 80px;
       margin-right: 10px;
     }
-    p {
-      margin: 0 0 0.5vw 0;
-    }
+
     .spanRow {
       display: flex;
       flex-direction: row;
@@ -122,6 +126,10 @@ const SearchCont = styled.div`
     }
     .searchButton {
       margin: 0 1vw;
+    }
+
+    #min {
+      margin-bottom: 0px;
     }
   }
 `;

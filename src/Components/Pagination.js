@@ -12,16 +12,13 @@ const Pagination = (props) => {
     context.setPagValue(context.pagValue === 10 ? 10 : context.pagValue - 10);
   };
 
-  const Goto = () => {
-    context.setPagValue(context.pagValue === 10 ? 10 : context.pagValue - 10);
-  };
-
   return (
     <Fragment>
       <PagCont className={props.className}>
         <input type="button" value="Previous" onClick={Prev}></input>
         <p>
-          {context.pagValue / 10} / {Math.ceil(context.currentData.length / 10)}
+          Page: {context.pagValue / 10} /{" "}
+          {Math.ceil(context.currentData.length / 10)}
         </p>
         <input type="button" value="Next" onClick={Next}></input>
       </PagCont>
@@ -36,12 +33,12 @@ const PagCont = styled.div`
     text-align: center;
     justify-content: space-between;
     height: 100%;
-    width: 100%;
+    width: auto;
     border: 2px solid black;
     border-radius: 8px;
     margin: 1vw 0 0 0;
     p {
-      width: 8vw;
+      width: 20vw;
       padding: 0 1.2vw;
       border-radius: 8px;
       margin: 0;
@@ -49,6 +46,7 @@ const PagCont = styled.div`
       align-items: center;
       text-align: center;
       justify-content: center;
+      font-size: 3vw;
     }
 
     input {
@@ -63,6 +61,10 @@ const PagCont = styled.div`
     width: 30%;
     input {
       width: 6vw;
+    }
+    p {
+      font-size: 0.8vw;
+      width: 8vw;
     }
   }
 `;

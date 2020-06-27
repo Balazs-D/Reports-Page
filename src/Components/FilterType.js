@@ -67,7 +67,7 @@ const FilterType = (props) => {
         <input
           className="searchButton"
           type="button"
-          value="Search"
+          value="Set Filter"
           onClick={handleClick}
         ></input>
       </span>
@@ -78,12 +78,13 @@ const FilterType = (props) => {
 const FilterCont = styled.div`
   @media (min-width: 0px) {
     display: flex;
-    flex: 1;
+    justify-content: flex-start;
     flex-direction: column;
-    padding: 0.5vw;
+    flex: 1;
+    padding: 2vw;
     border: 1px solid black;
     border-radius: 4px;
-    margin: 0.5vw;
+    margin: 0 0 1vw 0;
     p {
       margin: 2vw 0 2vw 0;
     }
@@ -95,13 +96,15 @@ const FilterCont = styled.div`
       display: flex;
       flex-direction: row;
       flex: 3;
+      justify-content: space-between;
     }
     p {
       padding: 0 0.5vw;
+      margin: 0 0 2vw 0;
     }
     .searchButton {
       width: 75px;
-      margin: 0 1vw;
+      margin: 0 0vw;
       background: white;
       color: black;
       font-weight: bold;
@@ -110,9 +113,8 @@ const FilterCont = styled.div`
     }
   }
   @media (min-width: 800px) {
-    p {
-      margin: 0 0 0.5vw 0;
-    }
+    margin: 0.5vw;
+
     #checkBoxKeeper {
       flex-direction: row;
     }
