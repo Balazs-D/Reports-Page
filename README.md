@@ -25,7 +25,6 @@ npm install
 4. Run the application
 
 ```javascript
-cd elucidate-challenge
 npm start
 ```
 
