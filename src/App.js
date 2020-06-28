@@ -51,7 +51,12 @@ const Cont = styled.div`
 `;
 
 const CenterCont = styled.div`
-  width: 80vw;
+  @media (min-width: 0px) {
+    width: 95vw;
+  }
+  @media (min-width: 800px) {
+    width: 80vw;
+  }
 `;
 
 export default App;

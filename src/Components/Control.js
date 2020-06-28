@@ -50,14 +50,14 @@ const Span = styled.span`
 
 const ControlCont = styled.div`
   @media (min-width: 0px) {
-    width: 80vw;
+    width: 95vw;
     display: flex;
     flex-direction: column;
-    padding: 2vh 0;
+    padding: 1vw 0 2vh 0;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    margin: 2vw 0 0vw 0;
+    margin: 0vw 0 0vw 0;
 
     .side {
       height: 10vw;
@@ -65,6 +65,8 @@ const ControlCont = styled.div`
     }
   }
   @media (min-width: 800px) {
+    width: 80vw;
+
     .side {
       height: auto;
       display: flex;
