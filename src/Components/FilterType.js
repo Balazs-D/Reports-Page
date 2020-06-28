@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext, Fragment } from "react";
+import React, { useEffect, useContext } from "react";
 import styled from "styled-components";
 import { Context } from "../Context/Context";
 // Components
@@ -53,6 +53,7 @@ const FilterType = (props) => {
       <p>Type</p>
       <span>
         <span id="checkBoxKeeper">
+          {/* eslint-disable-next-line */}
           {FilterMods.map((item, i) => {
             if (i > 1)
               return (

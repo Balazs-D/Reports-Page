@@ -1,16 +1,15 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 // Components
 import InputText from "./Input";
 import FilterType from "./FilterType";
-import FilterPublished from "./FilterPublished";
+// import FilterPublished from "./FilterPublished";
 import ScoreRange from "./ScoreRange";
 import Pagination from "./Pagination";
 
 const Control = () => {
   const [isHidden, setIsHidden] = useState(false);
-  console.log(isHidden);
 
   const toggleFilterBar = () => {
     setIsHidden(!isHidden);
@@ -21,6 +20,7 @@ const Control = () => {
         <InputText />
         <ScoreRange />
         <FilterType />
+        {/* Filter function is not working correctly */}
         {/* <FilterPublished /> */}
       </Span>
       <Span>
@@ -49,8 +49,8 @@ const Span = styled.span`
 `;
 
 const ControlCont = styled.div`
-@media (min-width: 0px)
-   { width: 80vw;
+  @media (min-width: 0px) {
+    width: 80vw;
     display: flex;
     flex-direction: column;
     padding: 2vh 0;
@@ -62,20 +62,14 @@ const ControlCont = styled.div`
     .side {
       height: 10vw;
       margin: 0.5vw;
-      
     }
-}
-@media (min-width: 800px){
-  .side {
-     
+  }
+  @media (min-width: 800px) {
+    .side {
       height: auto;
-      display: flex; 
+      display: flex;
       align-items: space-between;
     }
-}
-   
-  
-    
   }
 `;
 

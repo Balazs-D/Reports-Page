@@ -1,11 +1,7 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import { Context } from "../Context/Context";
-
-// Components
-import SortButton from "./SortButton";
-import ProgressBar from "./ProgressBar";
 
 const Table = () => {
   const context = useContext(Context);
@@ -17,6 +13,7 @@ const Table = () => {
       await context.setCurrentData(res.data);
     }
     fetchFile();
+    //eslint-disable-next-line
   }, []);
 
   const sortName = () => {
@@ -47,17 +44,24 @@ const Table = () => {
         <tbody>
           <tr className="titleRow">
             <th>
-              Bank Name <SortButton onClick={sortName} />
+              Bank Name
+              <button onClick={sortName}>
+                <i class="fas fa-arrows-alt-v"></i>
+              </button>
             </th>
 
             <th>Bank BIC</th>
             <th>
-              Score <SortButton onClick={sortScore} />
+              Score
+              <button onClick={sortScore}>
+                <i class="fas fa-arrows-alt-v"></i>
+              </button>
             </th>
             <th>Type</th>
             <th>Created at</th>
             <th>Published at</th>
           </tr>
+
           {context.currentData &&
             context.currentData.map((item, i) => {
               if (i > context.pagValue - 10 && i < context.pagValue) {
@@ -67,7 +71,10 @@ const Table = () => {
                     <th>{item.body.bankBIC}</th>
                     <th>
                       {item.body.reportScore}{" "}
-                      <ProgressBar value={item.body.reportScore} />
+                      <progress
+                        value={item.body.reportScore}
+                        max="200"
+                      ></progress>
                     </th>
                     <th>{item.body.type}</th>
                     <th>{item.createdAt}</th>
@@ -101,7 +108,6 @@ const Styles = styled.div`
 
     table {
       border-spacing: 0;
-      /* border: 1px solid black; */
       color: black;
       width: 100%;
       .titleRow {

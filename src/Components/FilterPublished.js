@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext, Fragment } from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import { Context } from "../Context/Context";
 // Components
@@ -39,7 +39,7 @@ const FilterPublished = (props) => {
 
     var currentArr = context.data.filter(function (f) {
       let curr = f.createdAt;
-      // extract all date strings
+      // extract date strings
       curr = Object.keys(curr);
       // convert strings to date object
       curr = curr.map(function (date) {
@@ -52,14 +52,10 @@ const FilterPublished = (props) => {
 
       console.log(curr);
       console.log(todayDate);
-      // if there is more than 0 results keep it. if 0 then filter it away
+      // return more then 0
       return datesMatch.length > 0;
     });
     context.setCurrentData(currentArr);
-
-    console.log(currentArr);
-
-    // context.setCurrentData(currentArr);
   };
 
   return (
