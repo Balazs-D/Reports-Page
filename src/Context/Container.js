@@ -7,7 +7,10 @@ const Container = (props) => {
   const [currentFilterSelection, setCurrentFilterSelection] = useState([]);
   const [currentPublishArray, setCurrentPublishArray] = useState([""]);
   const [pagValue, setPagValue] = useState(10);
+  const [upwardsScore, setUpwardsScore] = useState(true);
   const [upwards, setUpwards] = useState(true);
+
+  const [arrayToSort, setArrayToSort] = useState("bankName");
   return (
     <Context.Provider
       value={{
@@ -23,6 +26,10 @@ const Container = (props) => {
         setPagValue,
         upwards,
         setUpwards,
+        arrayToSort,
+        setArrayToSort,
+        upwardsScore,
+        setUpwardsScore,
       }}
     >
       <Fragment>{props.children}</Fragment>

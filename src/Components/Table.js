@@ -3,6 +3,10 @@ import styled from "styled-components";
 import axios from "axios";
 import { Context } from "../Context/Context";
 
+// Components
+import SortButton from "./SortButton";
+import ProgressBar from "./ProgressBar";
+
 const Table = () => {
   const context = useContext(Context);
 
@@ -17,6 +21,24 @@ const Table = () => {
 
   const sortName = () => {
     context.setUpwards(!context.upwards);
+    const sortedData = context.currentData.sort((a, b) =>
+      context.upwards
+        ? a.body.bankName.localeCompare(b.body.bankName)
+        : b.body.bankName.localeCompare(a.body.bankName)
+    );
+    context.setCurrentData(sortedData);
+    console.log(context.upwards);
+  };
+
+  const sortScore = () => {
+    context.setUpwardsScore(!context.upwardsScore);
+    const sortedData = context.currentData.sort((a, b) =>
+      context.upwardsScore
+        ? a.body.reportScore - b.body.reportScore
+        : b.body.reportScore - a.body.reportScore
+    );
+    context.setCurrentData(sortedData);
+    console.log(context.upwardsScore);
   };
 
   return (
@@ -25,43 +47,35 @@ const Table = () => {
         <tbody>
           <tr className="titleRow">
             <th>
-              Bank Name{" "}
-              <button onClick={sortName}>
-                {context.upwards ? (
-                  <i class="fas fa-arrow-circle-up"></i>
-                ) : (
-                  <i class="fas fa-arrow-circle-down"></i>
-                )}
-              </button>
+              Bank Name <SortButton onClick={sortName} />
             </th>
 
             <th>Bank BIC</th>
-            <th>Score</th>
+            <th>
+              Score <SortButton onClick={sortScore} />
+            </th>
             <th>Type</th>
             <th>Created at</th>
             <th>Published at</th>
           </tr>
           {context.currentData &&
-            context.currentData
-              .sort((a, b) =>
-                context.upwards
-                  ? a.body.bankName.localeCompare(b.body.bankName)
-                  : b.body.bankName.localeCompare(a.body.bankName)
-              )
-              .map((item, i) => {
-                if (i > context.pagValue - 10 && i < context.pagValue) {
-                  return (
-                    <tr key={i}>
-                      <th>{item.body.bankName}</th>
-                      <th>{item.body.bankBIC}</th>
-                      <th>{item.body.reportScore}</th>
-                      <th>{item.body.type}</th>
-                      <th>{item.createdAt}</th>
-                      <th>{item.publishedAt}</th>
-                    </tr>
-                  );
-                }
-              })}
+            context.currentData.map((item, i) => {
+              if (i > context.pagValue - 10 && i < context.pagValue) {
+                return (
+                  <tr key={i}>
+                    <th>{item.body.bankName}</th>
+                    <th>{item.body.bankBIC}</th>
+                    <th>
+                      {item.body.reportScore}{" "}
+                      <ProgressBar value={item.body.reportScore} />
+                    </th>
+                    <th>{item.body.type}</th>
+                    <th>{item.createdAt}</th>
+                    <th>{item.publishedAt}</th>
+                  </tr>
+                );
+              }
+            })}
         </tbody>
       </table>
     </Styles>
