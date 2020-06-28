@@ -64,7 +64,7 @@ const Table = () => {
 
           {context.currentData &&
             context.currentData.map((item, i) => {
-              if (i > context.pagValue - 10 && i < context.pagValue) {
+              if (i > context.pagValue - 20 && i < context.pagValue) {
                 return (
                   <tr key={i}>
                     <th>{item.body.bankName}</th>
@@ -114,7 +114,7 @@ const Styles = styled.div`
         background: orange;
       }
       tr {
-        height: 4vw;
+        height: 2vw;
         :last-child {
           td {
             border-bottom: 0;
@@ -136,7 +136,7 @@ const Styles = styled.div`
     }
   }
   @media (min-width: 800px) {
-    font-size: 1vw;
+    font-size: 0.7vw;
     width: 100%;
     overflow: visible;
   }

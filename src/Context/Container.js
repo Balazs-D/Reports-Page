@@ -6,7 +6,7 @@ const Container = (props) => {
   const [currentData, setCurrentData] = useState([]);
   const [currentFilterSelection, setCurrentFilterSelection] = useState([]);
   const [currentPublishArray, setCurrentPublishArray] = useState([""]);
-  const [pagValue, setPagValue] = useState(10);
+  const [pagValue, setPagValue] = useState(20);
   const [upwardsScore, setUpwardsScore] = useState(true);
   const [upwards, setUpwards] = useState(true);
 

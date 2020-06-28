@@ -6,10 +6,10 @@ const Pagination = (props) => {
   const context = useContext(Context);
 
   const Next = () => {
-    context.setPagValue(context.pagValue + 10);
+    context.setPagValue(context.pagValue + 20);
   };
   const Prev = () => {
-    context.setPagValue(context.pagValue === 10 ? 10 : context.pagValue - 10);
+    context.setPagValue(context.pagValue === 20 ? 20 : context.pagValue - 20);
   };
 
   return (
@@ -17,8 +17,8 @@ const Pagination = (props) => {
       <PagCont className={props.className}>
         <input type="button" value="Previous" onClick={Prev}></input>
         <p>
-          Page: {context.pagValue / 10} /{" "}
-          {Math.ceil(context.currentData.length / 10)}
+          Page: {context.pagValue / 20} /{" "}
+          {Math.ceil(context.currentData.length / 20)}
         </p>
         <input type="button" value="Next" onClick={Next}></input>
       </PagCont>
