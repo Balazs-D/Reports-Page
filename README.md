@@ -2,42 +2,42 @@
 
 By [Balazs Danyadi](mailto:balazs.danyadi@gmail.com)
 
-### 1. Install
+## Instructions
 
-- Clone or download the repository
+1. Clone or download the repository
 
 ```javascript
 git clone git@github.com:Balazs-D/elucidate-challenge.git
 ```
 
-- Get into the directory
+2. Get into the directory
 
 ```javascript
 cd elucidate-challenge
 ```
 
-Install dependencies using
+3. Install dependencies using
 
 ```javascript
 npm install
 ```
 
-- Run the application
+4. Run the application
 
 ```javascript
 cd elucidate-challenge
 npm start
 ```
 
-### 2. Used Technologies
+5. Navigate to app in [browser](http://localhost:3000)
+
+## Used Technologies
 
 - React.js
 - Styled Components
 - Axios
 
----
-
-### 3. Requirements
+## Requirements
 
 - Please create a page that will load that file in the browser and will display it in the table.
 - Table should contain the required fields.
@@ -65,8 +65,8 @@ npm start
 
 - [ missing ] - Functional or E2E tests
 
----
-
-### 3. Bonus
+## Bonus
 
 - Hide filter section function for a better usability on mobile
+
+## Go to online page [here](https://elucidate-challenge.vercel.app/)
