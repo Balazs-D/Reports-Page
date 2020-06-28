@@ -26,7 +26,7 @@ const InputText = () => {
 
   return (
     <SearchCont>
-      <p>Keyword Search (only name & bic)</p>
+      <p>Name & BIC</p>
       <span>
         <input
           className="inputText"

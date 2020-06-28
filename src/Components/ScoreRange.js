@@ -112,7 +112,7 @@ const SearchCont = styled.div`
     margin: 0.5vw;
 
     input {
-      width: 80px;
+      width: 40px;
       margin-right: 10px;
     }
 

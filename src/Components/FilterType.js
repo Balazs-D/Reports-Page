@@ -85,6 +85,8 @@ const FilterCont = styled.div`
     border: 1px solid black;
     border-radius: 4px;
     margin: 0 0 1vw 0;
+    position: relative;
+
     p {
       margin: 2vw 0 2vw 0;
     }
@@ -96,7 +98,7 @@ const FilterCont = styled.div`
       display: flex;
       flex-direction: row;
       flex: 3;
-      justify-content: space-between;
+      justify-content: flex-end;
     }
     p {
       padding: 0 0.5vw;
@@ -115,8 +117,15 @@ const FilterCont = styled.div`
   @media (min-width: 800px) {
     margin: 0.5vw;
 
+    .searchButton {
+      width: auto;
+    }
+
     #checkBoxKeeper {
-      flex-direction: row;
+      flex-direction: column;
+      flex-wrap: wrap;
+      position: absolute;
+      left: 2vw;
     }
   }
 `;
